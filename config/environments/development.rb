@@ -29,4 +29,6 @@ Twetter::Application.configure do
 
   # see Controller filters and helpers at: https://github.com/plataformatec/devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :file
+  config.action_mailer.file_settings = { :location => Rails.root.join('tmp/mail') }
 end
