@@ -28,6 +28,10 @@ class TwetsController < ApplicationController
   def create
     @twet = current_user.twets.create(twet_params)
     if @twet.valid?
+      
+      @followers = Follow.where(:following_id => current_user.id).map(&:user)
+      TwetNotification.new_twet_from_follower(current_user, @followers).deliver
+
       flash[:success] = "Your twet was shared"
       redirect_to :action => :index and return
     else
