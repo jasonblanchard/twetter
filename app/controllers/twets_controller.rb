@@ -26,7 +26,7 @@ class TwetsController < ApplicationController
   #
   #
   def create
-    @twet = current_user.twets.create(twet_params)
+    @twet = TwetCreateService.new(current_user.twets.new(twet_params), current_user).execute
     if @twet.valid?
       flash[:success] = "Your twet was shared"
       redirect_to :action => :index and return
