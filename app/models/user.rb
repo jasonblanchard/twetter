@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :username, :presence => true, :uniqueness => true
+  
+  scope :by_username, lambda { |username| find_by(:username => username) }
 
   # Scope method to get all users except the one passed.
   #
