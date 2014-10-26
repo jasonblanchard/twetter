@@ -29,6 +29,6 @@ module Twetter
     }
 
     # Use our MentionLinker class to replace @mentions with a profile link
-    config.middleware.insert_before ActionDispatch::ParamsParser, MentionLinker
+    # config.middleware.insert_before ActionDispatch::ParamsParser, MentionLinker
   end
 end

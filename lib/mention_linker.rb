@@ -40,4 +40,8 @@ class MentionLinker
   def link_mentions(html)
     html.gsub(/(?<prefix>[>| ])@(?<username>(\w+))/, '\k<prefix><a href="/\k<username>">@\k<username></a>') if html
   end
+
+  def self.link_mentions(html)
+    html.gsub(/(?<prefix>[>| ])@(?<username>(\w+))/, '\k<prefix><a href="/\k<username>">@\k<username></a>') if html
+  end
 end
