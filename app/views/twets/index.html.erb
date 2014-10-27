@@ -17,7 +17,7 @@
         <%= content_tag :small, "@"+twet.user.username, :class => 'text-muted pad-10 text-middle' %>
         <%= content_tag :small, twet.created_at.strftime("%b %-d"), :class => 'text-muted text-middle pull-right' %>
         <div class="clearfix"></div>
-        <%= content_tag :p, MentionLinker.link_mentions(twet.content) %>
+        <%= content_tag :p, raw(MentionLinker.link_mentions(html_escape(twet.content))) %>
       </li>
       <li><hr></li>
       <% end -%>
